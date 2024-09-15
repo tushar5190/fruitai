@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup Done</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="message">Backup completed successfully!</div>
+        <button class="button" id="goToChat">Go to Chat</button>
+    </div>
+    <script>
+        document.getElementById('goToChat').addEventListener('click', () => {
+            window.location.href = 'chat-ui.html';
+        });
+    </script>
+</body>
+</html>
+

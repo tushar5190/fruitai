@@ -1,0 +1,80 @@
+<html></html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .disabled-button {
+            background-color: #cbd5e0; /* Light gray color */
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-80">
+        <h2 class="text-2xl font-bold text-center mb-4">Register</h2>
+        <p class="text-center text-gray-600 mb-4">
+            By signing up you are agreeing <br>
+            our <a href="#" class="text-blue-600">Term and privacy policy</a>
+        </p>
+        <div class="flex justify-center mb-4">
+            <a href="login.html" class="text-gray-600 mr-4">Login</a>
+            <a href="register.html" class="text-blue-600 border-b-2 border-blue-600">Register</a>
+        </div>
+        <form id="registerForm">
+            <div class="mb-4">
+                <label class="block text-gray-600 mb-2" for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded" type="email" id="email" placeholder="Email Address" oninput="validateForm()">
+            </div>
+            <div class="mb-4 relative">
+                <label class="block text-gray-600 mb-2" for="password"><i class="fas fa-lock"></i> Password</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded" type="password" id="password" placeholder="Password" oninput="validateForm()">
+                <i class="fas fa-eye absolute right-3 top-10 text-gray-600"></i>
+            </div>
+            <div class="mb-4 relative">
+                <label class="block text-gray-600 mb-2" for="confirmPassword"><i class="fas fa-lock"></i> Confirm Password</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded" type="password" id="confirmPassword" placeholder="Confirm Password" oninput="validateForm()">
+                <i class="fas fa-eye absolute right-3 top-10 text-gray-600"></i>
+            </div>
+            <button id="registerButton" class="w-full text-white py-2 rounded disabled-button" disabled>Register</button>
+        </form>
+        <div class="text-center my-4 text-gray-600">or connect with</div>
+        <div class="flex justify-center space-x-4 mb-4">
+            <a href="#" class="text-blue-600"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="#" class="text-purple-600"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="#" class="text-red-600"><i class="fab fa-pinterest fa-2x"></i></a>
+            <a href="#" class="text-blue-700"><i class="fab fa-linkedin fa-2x"></i></a>
+        </div>
+        <div class="flex justify-center">
+            <a href="#" class="bg-blue-600 p-4 rounded-full">
+                <i class="fas fa-fingerprint fa-2x text-white"></i>
+            </a>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const registerButton = document.getElementById('registerButton');
+            if (email && password && confirmPassword && password === confirmPassword) {
+                registerButton.disabled = false;
+                registerButton.classList.remove('disabled-button');
+                registerButton.classList.add('bg-blue-600');
+            } else {
+                registerButton.disabled = true;
+                registerButton.classList.remove('bg-blue-600');
+                registerButton.classList.add('disabled-button');
+            }
+        }
+document.getElementById('registerButton').addEventListener('click', (e) => {
+    e.preventDefault();  // Correctly prevent the default actio
+    // Replace the following line with your desired navigation logic
+    window.location.href = './login.html';  // Navigating to the login page
+});
+    </script>
+</body>
+</html>
